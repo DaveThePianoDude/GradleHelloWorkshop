@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://midb1.esri.com:3333/axis/services/MIDBProductionService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:midb="urn:midb-productionService" xmlns:impl="http://midb1.esri.com:3333/axis/services/MIDBProductionService" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://midb1.esri.com:3333/axis/services/MIDBProductionService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://midb1.esri.com:3333/axis/services/MIDBProductionService">
+      <xsd:import schemaLocation="https://midb1.esri.com:3333/axis/xmlSchema/MIDB_PRODUCTION.xsd" namespace="urn:midb-productionService" />
+      <xsd:element name="errorType">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="error">
+              <xsd:complexType>
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute name="description" type="xsd:string" />
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="error">
+    <wsdl:part name="error" element="impl:errorType" />
+  </wsdl:message>
+  <wsdl:message name="requestInsertCompositeRequest">
+    <wsdl:part name="requestInsertComposite" element="midb:requestInsertComposite" />
+  </wsdl:message>
+  <wsdl:message name="requestInsertCompositeResponse">
+    <wsdl:part name="responseInsertComposite" element="midb:responseInsertComposite" />
+  </wsdl:message>
+  <wsdl:message name="requestUpdateCompositeRequest">
+    <wsdl:part name="requestUpdateComposite" element="midb:requestUpdateComposite" />
+  </wsdl:message>
+  <wsdl:message name="requestUpdateCompositeResponse">
+    <wsdl:part name="responseUpdateComposite" element="midb:responseUpdateComposite" />
+  </wsdl:message>
+  <wsdl:message name="requestFacilityInsertionRequest">
+    <wsdl:part name="requestFacilityInsertion" element="midb:requestFacilityInsertion" />
+  </wsdl:message>
+  <wsdl:message name="requestFacilityInsertionResponse">
+    <wsdl:part name="responseFacilityInsertion" element="midb:responseFacilityInsertion" />
+  </wsdl:message>
+  <wsdl:message name="requestGetFacilityBoundaryRequest">
+    <wsdl:part name="requestGetFacilityBoundary" element="midb:requestGetFacilityBoundary" />
+  </wsdl:message>
+  <wsdl:message name="requestGetFacilityBoundaryResponse">
+    <wsdl:part name="responseGetFacilityBoundary" element="midb:responseGetFacilityBoundary" />
+  </wsdl:message>
+  <wsdl:message name="requestSetFacilityBoundaryRequest">
+    <wsdl:part name="requestSetFacilityBoundary" element="midb:requestSetFacilityBoundary" />
+  </wsdl:message>
+  <wsdl:message name="requestSetFacilityBoundaryResponse">
+    <wsdl:part name="responseSetFacilityBoundary" element="midb:responseSetFacilityBoundary" />
+  </wsdl:message>
+  <wsdl:message name="requestFunctionalInsertionRequest">
+    <wsdl:part name="requestFunctionalInsertion" element="midb:requestFunctionalInsertion" />
+  </wsdl:message>
+  <wsdl:message name="requestFunctionalInsertionResponse">
+    <wsdl:part name="responseFunctionalInsertion" element="midb:responseFunctionalInsertion" />
+  </wsdl:message>
+  <wsdl:message name="requestFastPINRequest">
+    <wsdl:part name="requestFastPIN" element="midb:requestFastPIN" />
+  </wsdl:message>
+  <wsdl:message name="requestFastPINResponse">
+    <wsdl:part name="responseFastPIN" element="midb:responseFastPIN" />
+  </wsdl:message>
+  <wsdl:message name="requestCreateDCRRequest">
+    <wsdl:part name="requestCreateDCR" element="midb:requestCreateDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestCreateDCRResponse">
+    <wsdl:part name="responseCreateDCR" element="midb:responseCreateDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestPromoteCompositeRequest">
+    <wsdl:part name="requestPromoteComposite" element="midb:requestPromoteComposite" />
+  </wsdl:message>
+  <wsdl:message name="requestPromoteCompositeResponse">
+    <wsdl:part name="responsePromoteComposite" element="midb:responsePromoteComposite" />
+  </wsdl:message>
+  <wsdl:message name="requestReviewDCRRequest">
+    <wsdl:part name="requestReviewDCR" element="midb:requestReviewDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestReviewDCRResponse">
+    <wsdl:part name="responseReviewDCR" element="midb:responseReviewDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestAcceptChangeDCRRequest">
+    <wsdl:part name="requestAcceptChangeDCR" element="midb:requestAcceptChangeDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestAcceptChangeDCRResponse">
+    <wsdl:part name="responseAcceptChangeDCR" element="midb:responseAcceptChangeDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestAcceptDeleteDCRRequest">
+    <wsdl:part name="requestAcceptDeleteDCR" element="midb:requestAcceptDeleteDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestAcceptDeleteDCRResponse">
+    <wsdl:part name="responseAcceptDeleteDCR" element="midb:responseAcceptDeleteDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestAcceptNominationRequest">
+    <wsdl:part name="requestAcceptNomination" element="midb:requestAcceptNomination" />
+  </wsdl:message>
+  <wsdl:message name="requestAcceptNominationResponse">
+    <wsdl:part name="responseAcceptNomination" element="midb:responseAcceptNomination" />
+  </wsdl:message>
+  <wsdl:message name="requestRejectNOMDCRRequest">
+    <wsdl:part name="requestRejectNOMDCR" element="midb:requestRejectNOMDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestRejectNOMDCRResponse">
+    <wsdl:part name="responseRejectNOMDCR" element="midb:responseRejectNOMDCR" />
+  </wsdl:message>
+  <wsdl:message name="requestPropagateUnitToEqpRequest">
+    <wsdl:part name="requestPropagateUnitToEqp" element="midb:requestPropagateUnitToEqp" />
+  </wsdl:message>
+  <wsdl:message name="requestPropagateUnitToEqpResponse">
+    <wsdl:part name="responsePropagateUnitToEqp" element="midb:responsePropagateUnitToEqp" />
+  </wsdl:message>
+  <wsdl:message name="requestCreateAVLogicalRecordRequest">
+    <wsdl:part name="requestCreateAVLogicalRecord" element="midb:requestCreateAVLogicalRecord" />
+  </wsdl:message>
+  <wsdl:message name="requestCreateAVLogicalRecordResponse">
+    <wsdl:part name="responseCreateAVLogicalRecord" element="midb:responseCreateAVLogicalRecord" />
+  </wsdl:message>
+  <wsdl:message name="requestCreateLogicalRecordRequest">
+    <wsdl:part name="requestCreateLogicalRecord" element="midb:requestCreateLogicalRecord" />
+  </wsdl:message>
+  <wsdl:message name="requestCreateLogicalRecordResponse">
+    <wsdl:part name="responseCreateLogicalRecord" element="midb:responseCreateLogicalRecord" />
+  </wsdl:message>
+  <wsdl:message name="requestResProdsRequest">
+    <wsdl:part name="requestResProds" element="midb:requestResProds" />
+  </wsdl:message>
+  <wsdl:message name="requestResProdsResponse">
+    <wsdl:part name="responseResProds" element="midb:responseResProds" />
+  </wsdl:message>
+  <wsdl:message name="requestUserPermissionsRequest">
+    <wsdl:part name="requestUserPermissions" element="midb:requestUserPermissions" />
+  </wsdl:message>
+  <wsdl:message name="requestUserPermissionsResponse">
+    <wsdl:part name="responseUserPermissions" element="midb:responseUserPermissions" />
+  </wsdl:message>
+  <wsdl:portType name="MIDBProductionService">
+    <wsdl:operation name="requestInsertComposite">
+      <wsdl:input name="requestInsertCompositeRequest" message="impl:requestInsertCompositeRequest" />
+      <wsdl:output name="requestInsertCompositeResponse" message="impl:requestInsertCompositeResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestUpdateComposite">
+      <wsdl:input name="requestUpdateCompositeRequest" message="impl:requestUpdateCompositeRequest" />
+      <wsdl:output name="requestUpdateCompositeResponse" message="impl:requestUpdateCompositeResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestFacilityInsertion">
+      <wsdl:input name="requestFacilityInsertionRequest" message="impl:requestFacilityInsertionRequest" />
+      <wsdl:output name="requestFacilityInsertionResponse" message="impl:requestFacilityInsertionResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestGetFacilityBoundary">
+      <wsdl:input name="requestGetFacilityBoundaryRequest" message="impl:requestGetFacilityBoundaryRequest" />
+      <wsdl:output name="requestGetFacilityBoundaryResponse" message="impl:requestGetFacilityBoundaryResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestSetFacilityBoundary">
+      <wsdl:input name="requestSetFacilityBoundaryRequest" message="impl:requestSetFacilityBoundaryRequest" />
+      <wsdl:output name="requestSetFacilityBoundaryResponse" message="impl:requestSetFacilityBoundaryResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestFunctionalInsertion">
+      <wsdl:input name="requestFunctionalInsertionRequest" message="impl:requestFunctionalInsertionRequest" />
+      <wsdl:output name="requestFunctionalInsertionResponse" message="impl:requestFunctionalInsertionResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestFastPIN">
+      <wsdl:input name="requestFastPINRequest" message="impl:requestFastPINRequest" />
+      <wsdl:output name="requestFastPINResponse" message="impl:requestFastPINResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestCreateDCR">
+      <wsdl:input name="requestCreateDCRRequest" message="impl:requestCreateDCRRequest" />
+      <wsdl:output name="requestCreateDCRResponse" message="impl:requestCreateDCRResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestPromoteComposite">
+      <wsdl:input name="requestPromoteCompositeRequest" message="impl:requestPromoteCompositeRequest" />
+      <wsdl:output name="requestPromoteCompositeResponse" message="impl:requestPromoteCompositeResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestReviewDCR">
+      <wsdl:input name="requestReviewDCRRequest" message="impl:requestReviewDCRRequest" />
+      <wsdl:output name="requestReviewDCRResponse" message="impl:requestReviewDCRResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestAcceptChangeDCR">
+      <wsdl:input name="requestAcceptChangeDCRRequest" message="impl:requestAcceptChangeDCRRequest" />
+      <wsdl:output name="requestAcceptChangeDCRResponse" message="impl:requestAcceptChangeDCRResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestAcceptDeleteDCR">
+      <wsdl:input name="requestAcceptDeleteDCRRequest" message="impl:requestAcceptDeleteDCRRequest" />
+      <wsdl:output name="requestAcceptDeleteDCRResponse" message="impl:requestAcceptDeleteDCRResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestAcceptNomination">
+      <wsdl:input name="requestAcceptNominationRequest" message="impl:requestAcceptNominationRequest" />
+      <wsdl:output name="requestAcceptNominationResponse" message="impl:requestAcceptNominationResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestRejectNOMDCR">
+      <wsdl:input name="requestRejectNOMDCRRequest" message="impl:requestRejectNOMDCRRequest" />
+      <wsdl:output name="requestRejectNOMDCRResponse" message="impl:requestRejectNOMDCRResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestPropagateUnitToEqp">
+      <wsdl:input name="requestPropagateUnitToEqpRequest" message="impl:requestPropagateUnitToEqpRequest" />
+      <wsdl:output name="requestPropagateUnitToEqpResponse" message="impl:requestPropagateUnitToEqpResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestCreateAVLogicalRecord">
+      <wsdl:input name="requestCreateAVLogicalRecordRequest" message="impl:requestCreateAVLogicalRecordRequest" />
+      <wsdl:output name="requestCreateAVLogicalRecordResponse" message="impl:requestCreateAVLogicalRecordResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestCreateLogicalRecord">
+      <wsdl:input name="requestCreateLogicalRecordRequest" message="impl:requestCreateLogicalRecordRequest" />
+      <wsdl:output name="requestCreateLogicalRecordResponse" message="impl:requestCreateLogicalRecordResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestResProds">
+      <wsdl:input name="requestResProdsRequest" message="impl:requestResProdsRequest" />
+      <wsdl:output name="requestResProdsResponse" message="impl:requestResProdsResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+    <wsdl:operation name="requestUserPermissions">
+      <wsdl:input name="requestUserPermissionsRequest" message="impl:requestUserPermissionsRequest" />
+      <wsdl:output name="requestUserPermissionsResponse" message="impl:requestUserPermissionsResponse" />
+      <wsdl:fault name="error" message="impl:error" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MIDBProductionServiceSoapBinding" type="impl:MIDBProductionService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="requestInsertComposite">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestInsertCompositeRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestInsertCompositeResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestUpdateComposite">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestUpdateCompositeRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestUpdateCompositeResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestFacilityInsertion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestFacilityInsertionRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestFacilityInsertionResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestGetFacilityBoundary">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestGetFacilityBoundaryRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestGetFacilityBoundaryResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestSetFacilityBoundary">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestSetFacilityBoundaryRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestSetFacilityBoundaryResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestFunctionalInsertion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestFunctionalInsertionRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestFunctionalInsertionResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestFastPIN">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestFastPINRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestFastPINResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestCreateDCR">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestCreateDCRRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestCreateDCRResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestPromoteComposite">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestPromoteCompositeRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestPromoteCompositeResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestReviewDCR">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestReviewDCRRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestReviewDCRResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestAcceptChangeDCR">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestAcceptChangeDCRRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestAcceptChangeDCRResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestAcceptDeleteDCR">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestAcceptDeleteDCRRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestAcceptDeleteDCRResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestAcceptNomination">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestAcceptNominationRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestAcceptNominationResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestRejectNOMDCR">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestRejectNOMDCRRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestRejectNOMDCRResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestPropagateUnitToEqp">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestPropagateUnitToEqpRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestPropagateUnitToEqpResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestCreateAVLogicalRecord">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestCreateAVLogicalRecordRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestCreateAVLogicalRecordResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestCreateLogicalRecord">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestCreateLogicalRecordRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestCreateLogicalRecordResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestResProds">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestResProdsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestResProdsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestUserPermissions">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="requestUserPermissionsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestUserPermissionsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="error">
+        <wsdlsoap:fault use="literal" name="error" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MIDBProductionServiceService">
+    <wsdl:port name="MIDBProductionService" binding="impl:MIDBProductionServiceSoapBinding">
+      <wsdlsoap:address location="https://midb1.esri.com:3333/axis/services/MIDBProductionService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
